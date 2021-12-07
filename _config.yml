@@ -1,1 +1,7 @@
 theme: jekyll-theme-cayman
+title: tfcaidm
+description: Deep learning pipeline for medical imaging
+markdown: GFM
+github:
+  repository_url: https://github.com/Brandhsu/tfcaidm
+  benchmark_url: https://brandhsu.github.io/tfcaidm-site/benchmarks
