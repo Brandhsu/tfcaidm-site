@@ -6,27 +6,27 @@ Baseline results obtained using the `tfcaidm` pipeline. These results can act as
 
 ### Datasets
 
-| Dataset      | Description | Annotation   | Additional Information | # Training Samples | # Validation Samples |
-| ------------ | ----------- | ------------ | ---------------------- | ------------------ | -------------------- |
-| xr_pna       | xray        | segmentation |                        |                    |                      |         
-| ct_pna       | ct          | segmentation |                        |                    |                      |         
-| kits         | ct          | segmentation |                        |                    |                      |         
-| brats        | mri         | segmentation |                        |                    |                      |         
+| Dataset | Description | Annotation   | Additional Information | # Training Samples | # Validation Samples |
+| ------- | ----------- | ------------ | ---------------------- | ------------------ | -------------------- |
+| xr_pna  | xray        | segmentation |                        |                    |                      |
+| ct_pna  | ct          | segmentation |                        |                    |                      |
+| kits    | ct          | segmentation |                        |                    |                      |
+| brats   | mri         | segmentation |                        |                    |                      |
 
 ---
 
 ### Results
 
-| Dataset | Task             | Model  | Training Scheme                            | Metrics | Score ↑|
-| ------- | ---------------- | ------ | ------------------------------------------ | ------- | -----  |
-| xr_pna  | segmentation     | unet   | pixel-wise classification w/ class weights | F1      |        |
-| xr_pna  | segmentation     | unet++ | pixel-wise classification w/ class weights | F1      |        |
-| xr_pna  | segmentation     | unet3+ | pixel-wise classification w/ class weights | F1      |        |
+| User    | Dataset | Task         | Model  | Training Scheme                            | Metrics | Score ↑ |
+| ------- | ------- | ------------ | ------ | ------------------------------------------ | ------- | ------- |
+| tfcaidm | xr_pna  | segmentation | unet   | pixel-wise classification w/ class weights | F1      |         |
+| tfcaidm | xr_pna  | segmentation | unet++ | pixel-wise classification w/ class weights | F1      |         |
+| tfcaidm | xr_pna  | segmentation | unet3+ | pixel-wise classification w/ class weights | F1      |         |
 
 ---
 
-| Dataset | Task             | Model  | Training Scheme                            | Metrics | Score ↑|
-| ------- | ---------------- | ------ | ------------------------------------------ | ------- | -----  |
-| ct_pna  | segmentation     | unet   | pixel-wise classification w/ class weights | F1      |        |
-| ct_pna  | segmentation     | unet++ | pixel-wise classification w/ class weights | F1      |        |
-| ct_pna  | segmentation     | unet3+ | pixel-wise classification w/ class weights | F1      |        |
+| User    | Dataset | Task         | Model  | Training Scheme                            | Metrics | Score ↑ |
+| ------- | ------- | ------------ | ------ | ------------------------------------------ | ------- | ------- |
+| tfcaidm | ct_pna  | segmentation | unet   | pixel-wise classification w/ class weights | F1      |         |
+| tfcaidm | ct_pna  | segmentation | unet++ | pixel-wise classification w/ class weights | F1      |         |
+| tfcaidm | ct_pna  | segmentation | unet3+ | pixel-wise classification w/ class weights | F1      |         |
