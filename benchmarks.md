@@ -2,9 +2,9 @@
 
 ### Introduction
 
-Baseline results obtained using the `tfcaidm` pipeline. These results can act as a leaderboard for individuals interested in benchmarking their different models and methodologies. A user can submit their results by running an automated script which will be provided in the near future. The script will take as input a trained model and output a performance score.
+Baseline results obtained using the `tfcaidm` pipeline. These results can act as a leaderboard for individuals interested in benchmarking their different models and methodologies. A user can submit their results by writing a few lines of code, with examples shown below. For those new to the lab, this is a great place to start!
 
-Note: Benchmarks are currently only supported on the CAIDM clusters, additionally, [tfcaidm](https://github.com/Brandhsu/tfcaidm) must be installed to run a benchmark.
+Note: Benchmarks are currently only supported on the CAIDM clusters, additionally, [tfcaidm](https://github.com/Brandhsu/tfcaidm) must be installed.
 
 <details>
 
