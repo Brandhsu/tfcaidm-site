@@ -4,13 +4,13 @@
 
 Baseline results obtained using the `tfcaidm` pipeline. These results can act as a leaderboard for individuals interested in benchmarking their different models and methodologies. A user can submit their results by running an automated script which will be provided in the near future. The script will take as input a trained model and output a performance score.
 
-Note: [tfcaidm](https://github.com/Brandhsu/tfcaidm) must be installed to run a benchmark.
+Note: Benchmarks are currently only supported on the CAIDM clusters, additionally, [tfcaidm](https://github.com/Brandhsu/tfcaidm) must be installed to run a benchmark.
 
 <details>
 
 <summary>Getting started</summary>
 
-To get started, users should checkout all related benchmark datasets and their descriptions using the `help` method. They can also checkout the current leaderboard standings with the `view_leaderboard` method. This site will be updated with the best submissions periodically, but for real-time updates, use the methods below.
+To get started, users should checkout all related benchmark datasets and their descriptions using the `help` method. They can also checkout the current leaderboard standings with the `leaderboard` method. This site will be updated with the best submissions periodically, but for real-time updates, use the methods below.
 
 ```python
 from tfcaidm import Benchmark
@@ -19,7 +19,7 @@ from tfcaidm import Benchmark
 Benchmark.help()
 
 # --- View the leaderboards
-Benchmark.view_leaderboard()
+Benchmark.leaderboard()
 ```
 
 </details>
@@ -61,27 +61,19 @@ benchmark.submit()
 
 ### Datasets
 
-| Dataset | Description | Annotation   | Additional Information | # Training Samples | # Validation Samples |
-| ------- | ----------- | ------------ | ---------------------- | ------------------ | -------------------- |
-| xr_pna  | xray        | segmentation |                        |                    |                      |
-| ct_pna  | ct          | segmentation |                        |                    |                      |
-| kits    | ct          | segmentation |                        |                    |                      |
-| brats   | mri         | segmentation |                        |                    |                      |
+| Dataset       | Client                        | Description                                                                                                            | Annotation                         | Inputs                                                                                                | Outputs                   | Additional Information                                                                                                               | # Evaluation Samples | Fold |
+| ------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------- | ---- |
+| ct/kits       | /data/ymls/client-2d.yml      | 2D kidney tumor segmentation (3 classes: background, kidney, tumor)                                                    | tumor segmentation                 | {"dat": [1, 96, 96, 1]}                                                                               | {"lbl": [1, 96, 96, 1]}   | [ct-kidney-kits](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/ct-kidney-kits/segmentation.ipynb) |                      | 0    |
+| ct/pna        | /data/ymls/client.yml         | 2D pneumonia segmentation (2 classes: background, pneumonia)                                                           | pneumonia segmentation             | {"dat": [1, 256, 256, 1], "lng": [1, 256, 256, 1]}                                                    | {"pna": [1, 256, 256, 1]} | [ct-lung-pna](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/ct-lung-pna/segmentation.ipynb)       |                      | 0    |
+| mr/brats      | /data/ymls/client-5-class.yml | 2D brain tumor segmentation (5 classes: background, necrosis tumor, edema tumor, non-enhancing tumor, enhancing tumor) | tumor segmentation                 | {"t2": [1, 240, 240, 1], "flair": [1, 240, 240, 1], "pre": [1, 240, 240, 1], "post": [1, 240, 240, 1] | {"lbl": [1, 240, 240, 1]} | [mr-brain-tumor](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/mr-brain-tumor/segmentation.ipynb) |                      | 0    |
+| mr/breast-fgt | /data/ymls/client-3-class.yml | 2D breast fibroglandular tissue segmentation (3 classes: background, breast, fibroglandular tissue)                    | fibroglandular tissue segmentation | {"dat": [1, 256, 256, 1]}                                                                             | {"lbl": [1, 256, 256, 1]} | [mr-breast-fgt](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/mr-breast-fgt/segmentation.ipynb)   |                      | 0    |
 
 ---
 
 ### Results
 
-| User    | Dataset | Task         | Model  | # Parameters | Description                       | Metrics | Score ↑ | Date |
-| ------- | ------- | ------------ | ------ | ------------ | --------------------------------- | ------- | ------- | ---- |
-| tfcaidm | xr_pna  | segmentation | unet   |              | pixel classifier w/ class weights | F1      |         |      |
-| tfcaidm | xr_pna  | segmentation | unet++ |              | pixel classifier w/ class weights | F1      |         |      |
-| tfcaidm | xr_pna  | segmentation | unet3+ |              | pixel classifier w/ class weights | F1      |         |      |
-
----
-
-| User    | Dataset | Task         | Model  | # Parameters | Description                       | Metrics | Score ↑ | Date |
-| ------- | ------- | ------------ | ------ | ------------ | --------------------------------- | ------- | ------- | ---- |
-| tfcaidm | ct_pna  | segmentation | unet   |              | pixel classifier w/ class weights | F1      |         |      |
-| tfcaidm | ct_pna  | segmentation | unet++ |              | pixel classifier w/ class weights | F1      |         |      |
-| tfcaidm | ct_pna  | segmentation | unet3+ |              | pixel classifier w/ class weights | F1      |         |      |
+| User    | Dataset | Task         | Model  | # Params | Description                       | Metrics | Score ↑ | Date |
+| ------- | ------- | ------------ | ------ | -------- | --------------------------------- | ------- | ------- | ---- |
+| tfcaidm | ct/pna  | segmentation | unet   |          | pixel classifier w/ class weights | F1      |         |      |
+| tfcaidm | ct/pna  | segmentation | unet++ |          | pixel classifier w/ class weights | F1      |         |      |
+| tfcaidm | ct/pna  | segmentation | unet3+ |          | pixel classifier w/ class weights | F1      |         |      |
