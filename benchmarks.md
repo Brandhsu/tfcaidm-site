@@ -61,19 +61,139 @@ benchmark.submit()
 
 ### Datasets
 
-| Dataset       | Client                        | Description                                  | Annotation                         | Inputs                           | Outputs   | Additional Information                                                                                                               | # Evaluation Samples | Fold |
-| ------------- | ----------------------------- | -------------------------------------------- | ---------------------------------- | -------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------- | ---- |
-| ct/kits       | /data/ymls/client-2d.yml      | 2D kidney tumor segmentation                 | tumor segmentation                 | `["dat"]`                        | `["lbl"]` | [ct-kidney-kits](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/ct-kidney-kits/segmentation.ipynb) |                      | 0    |
-| ct/pna        | /data/ymls/client.yml         | 2D pneumonia segmentation                    | pneumonia segmentation             | `["dat", "lng"]`                 | `["pna"]` | [ct-lung-pna](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/ct-lung-pna/segmentation.ipynb)       |                      | 0    |
-| mr/brats      | /data/ymls/client-5-class.yml | 2D brain tumor segmentation                  | tumor segmentation                 | `["t2", "flair", "pre", "post"]` | `["lbl"]` | [mr-brain-tumor](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/mr-brain-tumor/segmentation.ipynb) |                      | 0    |
-| mr/breast-fgt | /data/ymls/client-3-class.yml | 2D breast fibroglandular tissue segmentation | fibroglandular tissue segmentation | `["dat"]`                        | `["lbl"]` | [mr-breast-fgt](https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/mr-breast-fgt/segmentation.ipynb)   |                      | 0    |
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Client</th>
+      <th>Description</th>
+      <th>Annotation</th>
+      <th>Inputs</th>
+      <th>Outputs</th>
+      <th>Additional Information</th>
+      <th># Evaluation Samples</th>
+      <th>Fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ct/kits</td>
+      <td>/data/ymls/client-2d.yml</td>
+      <td>2D kidney tumor segmentation</td>
+      <td>tumor segmentation</td>
+      <td><code>["dat"]</code></td>
+      <td><code>["lbl"]</code></td>
+      <td>
+        <a
+          href="https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/ct-kidney-kits/segmentation.ipynb"
+          >ct-kidney-kits</a
+        >
+      </td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ct/pna</td>
+      <td>/data/ymls/client.yml</td>
+      <td>2D pneumonia segmentation</td>
+      <td>pneumonia segmentation</td>
+      <td><code>["dat", "lng"]</code></td>
+      <td><code>["pna"]</code></td>
+      <td>
+        <a
+          href="https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/ct-lung-pna/segmentation.ipynb"
+          >ct-lung-pna</a
+        >
+      </td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>mr/brats</td>
+      <td>/data/ymls/client-5-class.yml</td>
+      <td>2D brain tumor segmentation</td>
+      <td>tumor segmentation</td>
+      <td><code>["t2", "flair", "pre", "post"]</code></td>
+      <td><code>["lbl"]</code></td>
+      <td>
+        <a
+          href="https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/mr-brain-tumor/segmentation.ipynb"
+          >mr-brain-tumor</a
+        >
+      </td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>mr/breast-fgt</td>
+      <td>/data/ymls/client-3-class.yml</td>
+      <td>2D breast fibroglandular tissue segmentation</td>
+      <td>fibroglandular tissue segmentation</td>
+      <td><code>["dat"]</code></td>
+      <td><code>["lbl"]</code></td>
+      <td>
+        <a
+          href="https://colab.research.google.com/github/peterchang77/caidm/blob/master/datasets/mr-breast-fgt/segmentation.ipynb"
+          >mr-breast-fgt</a
+        >
+      </td>
+      <td></td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
 ### Results
 
-| User    | Dataset | Task         | Model  | # Params | Description                       | Metrics | Score ↑ | Date |
-| ------- | ------- | ------------ | ------ | -------- | --------------------------------- | ------- | ------- | ---- |
-| tfcaidm | ct/pna  | segmentation | unet   |          | pixel classifier w/ class weights | F1      |         |      |
-| tfcaidm | ct/pna  | segmentation | unet++ |          | pixel classifier w/ class weights | F1      |         |      |
-| tfcaidm | ct/pna  | segmentation | unet3+ |          | pixel classifier w/ class weights | F1      |         |      |
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>User</th>
+      <th>Dataset</th>
+      <th>Model</th>
+      <th># Params</th>
+      <th>Description</th>
+      <th>Metrics</th>
+      <th>Score ↑</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>tfcaidm</td>
+      <td>ct/pna</td>
+      <td>unet</td>
+      <td></td>
+      <td>pixel classifier w/ class weights</td>
+      <td>F1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>tfcaidm</td>
+      <td>ct/pna</td>
+      <td>unet++</td>
+      <td></td>
+      <td>pixel classifier w/ class weights</td>
+      <td>F1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>tfcaidm</td>
+      <td>ct/pna</td>
+      <td>unet3+</td>
+      <td></td>
+      <td>pixel classifier w/ class weights</td>
+      <td>F1</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
